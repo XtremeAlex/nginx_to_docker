@@ -1,16 +1,12 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
-
-  }
+  agent any
   stages {
     stage('Build') {
       parallel {
         stage('Build') {
           steps {
             echo 'Build'
+            sh 'docker build -t proxy_docker_nginx .'
           }
         }
 
