@@ -13,7 +13,6 @@ pipeline {
         stage('Build') {
           steps {
             echo 'Build'
-            sh 'docker run  --ip 172.17.0.8 -d -p 8087:9001 -P -v /var/log:/log mthenw/frontail /log/syslog -url-path /syslog --disable-usage-stats'
           }
         }
 
