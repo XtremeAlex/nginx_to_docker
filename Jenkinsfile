@@ -1,9 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'mthenw/frontail'
-      args '''--ip 172.17.0.8 -d -p 8087:9001 -P 
--v /var/log:/log  /log/syslog -url-path /syslog --disable-usage-stats'''
+    dockerfile {
+      filename 'Dockerfile'
     }
 
   }
