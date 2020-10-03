@@ -3,9 +3,10 @@ pipeline {
   stages {
     stage('Build') {
       parallel {
-        stage('Build') {
+        stage('Fetch Dependencies') {
           steps {
-            echo 'Build'
+            echo 'Fetch Dependencies'
+            sh 'sudo docker pull nginx:latest'
           }
         }
 
