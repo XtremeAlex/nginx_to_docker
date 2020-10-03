@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'true'
+    }
+
+  }
   stages {
     stage('Build') {
       parallel {
