@@ -19,11 +19,18 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Build docker image') {
       steps {
         echo 'Deploy'
+        sh 'sudo docker build . -t coustomnginx:1'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
         input(message: 'Procedere Al Deploy?', id: 'OK')
-        sh 'docker build -t nginx:alpine .'
+        echo 'Deploy...'
+        sh 'sudo docker run --rm -it -p 80:80 proxy_docker_nginx'
       }
     }
 
