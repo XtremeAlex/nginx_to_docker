@@ -7,7 +7,7 @@ pipeline {
           steps {
             echo 'Fetch Dependencies'
             sh '''
-docker build -t test-app:${BUILD_NUMBER} . '''
+sudo docker build -t test-app:${BUILD_NUMBER} . '''
           }
         }
 
