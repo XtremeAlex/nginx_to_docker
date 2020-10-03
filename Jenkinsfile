@@ -6,7 +6,9 @@ pipeline {
         stage('Fetch Dependencies') {
           steps {
             echo 'Fetch Dependencies'
-            sh 'sudo docker build -t proxy_docker_nginx .'
+            sh 'docker run --user=\'jenkins\' --rm -v `pwd`:/app -w /app node yarn install'
+            sh '''
+docker build -t proxy_docker_nginx .'''
           }
         }
 
