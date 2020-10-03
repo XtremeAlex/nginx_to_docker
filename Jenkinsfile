@@ -6,7 +6,7 @@ pipeline {
         stage('Fetch Dependencies') {
           steps {
             echo 'Fetch Dependencies'
-            sh 'sudo docker pull nginx:latest'
+            sh 'sudo docker build -t proxy_docker_nginx .'
           }
         }
 
@@ -16,13 +16,6 @@ pipeline {
           }
         }
 
-      }
-    }
-
-    stage('Build docker image') {
-      steps {
-        echo 'Deploy'
-        sh 'sudo docker build . -t coustomnginx:1'
       }
     }
 
