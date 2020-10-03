@@ -6,9 +6,8 @@ pipeline {
         stage('Fetch Dependencies') {
           steps {
             echo 'Fetch Dependencies'
-            sh 'sudo chown root:jenkins /run/docker.sock'
             sh '''
-sudo docker build -t proxy_docker_nginx .'''
+docker build -t test-app:${BUILD_NUMBER} . '''
           }
         }
 
@@ -29,5 +28,8 @@ sudo docker build -t proxy_docker_nginx .'''
       }
     }
 
+  }
+  environment {
+    HOME = '.'
   }
 }
