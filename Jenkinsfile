@@ -8,7 +8,7 @@ pipeline {
             echo 'Fetch Dependencies'
             sh 'sudo chown root:jenkins /run/docker.sock'
             sh '''
-docker build -t proxy_docker_nginx .'''
+sudo docker build -t proxy_docker_nginx .'''
           }
         }
 
