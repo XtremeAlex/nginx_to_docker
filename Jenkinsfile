@@ -22,6 +22,7 @@ pipeline {
       steps {
         echo 'Deploy'
         input(message: 'Procedere Al Deploy?', id: 'OK')
+        sh 'docker build -t nginx:alpine .'
       }
     }
 
